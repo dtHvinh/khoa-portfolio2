@@ -1,5 +1,6 @@
 import Reveal from "./components/Reveal";
-import BeforeAfter from "./components/BeforeAfter";
+import VideoFrame from "./components/VideoFrame";
+import SectionDivider from "./components/SectionDivider";
 
 /* ------------------------------------------------------------------ */
 /*  Content — edit everything here. Placeholder copy for now.          */
@@ -58,11 +59,50 @@ const EXPERIENCE = [
 
 const SOFTWARE = ["Pr", "Ae", "Ps", "Ai", "DR"];
 
-const PROJECTS = [
-  { channel: "Gameplay Central", category: "Gaming Highlights" },
-  { channel: "Tech Unboxed", category: "Tech Review" },
-  { channel: "Nova VT", category: "VTuber Clips" },
-  { channel: "Northlight Media", category: "Brand Campaign" },
+const VIDEO_PROJECTS = [
+  {
+    title: "Gameplay Central — Highlight Reel",
+    caption: "Channel: Gameplay Central · Gaming Highlights",
+    embedUrl: "", // e.g. "https://www.youtube.com/embed/VIDEO_ID"
+  },
+  {
+    title: "Tech Unboxed — Review Edit",
+    caption: "Channel: Tech Unboxed · Tech Review",
+    embedUrl: "",
+  },
+  {
+    title: "Nova VT — Clip Compilation",
+    caption: "Channel: Nova VT · VTuber Clips",
+    embedUrl: "",
+  },
+  {
+    title: "Northlight Media — Brand Spot",
+    caption: "Channel: Northlight Media · Brand Campaign",
+    embedUrl: "",
+  },
+];
+
+const MOTION_PROJECTS = [
+  {
+    title: "Kinetic Logo Reveal",
+    caption: "Motion Graphics · Logo Animation",
+    embedUrl: "",
+  },
+  {
+    title: "Lower Thirds Pack",
+    caption: "Motion Graphics · Broadcast Package",
+    embedUrl: "",
+  },
+  {
+    title: "Title Sequence",
+    caption: "Motion Graphics · Title Design",
+    embedUrl: "",
+  },
+  {
+    title: "Explainer Animation",
+    caption: "Motion Graphics · Explainer",
+    embedUrl: "",
+  },
 ];
 
 const SERVICES = [
@@ -116,6 +156,9 @@ export default function Home() {
             <a href="#work" className="transition-colors hover:text-accent">
               Work
             </a>
+            <a href="#motion-graphics" className="transition-colors hover:text-accent">
+              Motion
+            </a>
             <a href="#services" className="transition-colors hover:text-accent">
               Services
             </a>
@@ -137,7 +180,7 @@ export default function Home() {
           <p className="mb-6 font-mono text-xs tracking-[0.3em] text-muted uppercase">
             Portfolio ’26 — {EDITOR.role}
           </p>
-          <h1 className="font-impact text-[16vw] leading-[0.82] tracking-tight sm:text-[11vw]">
+          <h1 className="font-extrabold text-[16vw] leading-[0.82] tracking-tight sm:text-[11vw]">
             {EDITOR.name}
           </h1>
           <p className="mt-4 font-mono text-lg text-muted sm:text-xl">
@@ -173,30 +216,7 @@ export default function Home() {
             <p className="max-w-xs text-sm text-muted">{FEATURED.caption}</p>
           </Reveal>
           <Reveal>
-            <div className="group relative aspect-video w-full overflow-hidden rounded-xl border border-accent/30 bg-gradient-to-br from-zinc-900 via-black to-blue-950/40">
-              {FEATURED.embedUrl ? (
-                <iframe
-                  className="h-full w-full"
-                  src={FEATURED.embedUrl}
-                  title={FEATURED.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              ) : (
-                <button
-                  type="button"
-                  className="absolute inset-0 flex flex-col items-center justify-center gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-                  aria-label={`Play ${FEATURED.title}`}
-                >
-                  <span className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-black/40 backdrop-blur transition-transform duration-500 group-hover:scale-110">
-                    <span className="ml-1 block h-0 w-0 border-y-[12px] border-l-[20px] border-y-transparent border-l-foreground" />
-                  </span>
-                  <span className="font-mono text-xs tracking-widest text-muted uppercase">
-                    Play {FEATURED.title}
-                  </span>
-                </button>
-              )}
-            </div>
+            <VideoFrame title={FEATURED.title} embedUrl={FEATURED.embedUrl} />
           </Reveal>
         </div>
       </section>
@@ -212,16 +232,16 @@ export default function Home() {
           <div className="mt-10 grid gap-10 lg:grid-cols-[280px_1fr]">
             <Reveal>
               <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-line bg-gradient-to-b from-blue-950/40 via-zinc-900 to-black">
-                <span className="absolute bottom-4 left-4 font-impact text-4xl text-white/10">
+                <span className="absolute bottom-4 left-4 font-extrabold text-4xl text-white/10">
                   {INITIALS}
                 </span>
               </div>
             </Reveal>
             <div className="grid gap-10 sm:grid-cols-2">
               <Reveal>
-                <h3 className="font-impact text-2xl tracking-tight">Bio</h3>
+                <h3 className="font-extrabold text-2xl tracking-tight">Bio</h3>
                 <p className="mt-4 leading-relaxed text-muted">{EDITOR.bio}</p>
-                <h3 className="mt-10 font-impact text-2xl tracking-tight">
+                <h3 className="mt-10 font-extrabold text-2xl tracking-tight">
                   Skills
                 </h3>
                 <ul className="mt-4 space-y-2">
@@ -234,7 +254,7 @@ export default function Home() {
                 </ul>
               </Reveal>
               <Reveal delay={100}>
-                <h3 className="font-impact text-2xl tracking-tight">
+                <h3 className="font-extrabold text-2xl tracking-tight">
                   Experience
                 </h3>
                 <div className="mt-4 space-y-6">
@@ -259,7 +279,7 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <h3 className="mt-10 font-impact text-2xl tracking-tight">
+                <h3 className="mt-10 font-extrabold text-2xl tracking-tight">
                   Software
                 </h3>
                 <div className="mt-4 flex flex-wrap gap-3">
@@ -278,38 +298,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- Work divider ---------- */}
-      <section className="relative overflow-hidden border-t border-line bg-grid px-6 py-24 text-center sm:px-10">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/15 blur-[140px]" />
-        <Reveal className="relative">
-          <h2 className="font-impact text-[13vw] leading-none tracking-tight sm:text-[7vw]">
-            Video Editing
-          </h2>
-          <p className="mt-3 font-mono text-sm uppercase tracking-[0.3em] text-muted">
-            Selected Work
-          </p>
-        </Reveal>
-      </section>
+      {/* ---------- Video Editing ---------- */}
+      <SectionDivider title="Video Editing" subtitle="Selected Work" />
 
-      {/* ---------- Selected Work ---------- */}
       <section id="work" className="px-6 py-20 sm:px-10 sm:py-28">
-        <div className="mx-auto max-w-7xl space-y-16">
+        <div className="mx-auto max-w-7xl">
           <Reveal>
-            <p className="max-w-xl text-sm text-muted">
+            <p className="mb-12 max-w-xl text-sm text-muted">
               Disclaimer: the projects shown below were edited by me
               exclusively to demonstrate my editing skills. All original
               material belongs to its respective creators.
             </p>
           </Reveal>
-          {PROJECTS.map((project, i) => (
-            <Reveal key={project.channel} delay={(i % 2) * 100}>
-              <BeforeAfter
-                index={i + 1}
-                channel={project.channel}
-                category={project.category}
-              />
-            </Reveal>
-          ))}
+          <div className="grid gap-10 sm:grid-cols-2">
+            {VIDEO_PROJECTS.map((project, i) => (
+              <Reveal key={project.title} delay={(i % 2) * 100}>
+                <VideoFrame title={project.title} embedUrl={project.embedUrl} />
+                <p className="mt-4 font-mono text-xs tracking-[0.15em] text-muted uppercase">
+                  {project.caption}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- Motion Graphics ---------- */}
+      <SectionDivider title="Motion Graphics" subtitle="Selected Work" />
+
+      <section id="motion-graphics" className="px-6 py-20 sm:px-10 sm:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 sm:grid-cols-2">
+            {MOTION_PROJECTS.map((project, i) => (
+              <Reveal key={project.title} delay={(i % 2) * 100}>
+                <VideoFrame title={project.title} embedUrl={project.embedUrl} />
+                <p className="mt-4 font-mono text-xs tracking-[0.15em] text-muted uppercase">
+                  {project.caption}
+                </p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -317,7 +345,7 @@ export default function Home() {
       <section id="services" className="border-t border-line px-6 py-20 sm:px-10 sm:py-28">
         <div className="mx-auto max-w-7xl">
           <Reveal>
-            <h2 className="mb-12 font-impact text-4xl tracking-tight sm:text-6xl">
+            <h2 className="mb-12 font-extrabold text-4xl tracking-tight sm:text-6xl">
               What I do
             </h2>
           </Reveal>
@@ -350,7 +378,7 @@ export default function Home() {
             <p className="font-mono text-xs tracking-[0.3em] text-accent uppercase">
               ◖ Contact
             </p>
-            <h2 className="mt-6 font-impact text-[16vw] leading-[0.85] tracking-tight sm:text-[10vw]">
+            <h2 className="mt-6 font-extrabold text-[16vw] leading-[0.85] tracking-tight sm:text-[10vw]">
               Thank You!
             </h2>
             <div className="mt-10 flex flex-wrap gap-4">

@@ -16,7 +16,6 @@
   --color-accent: var(--accent);
   --font-sans: var(--font-display);
   --font-mono: var(--font-mono-label);
-  --font-impact: var(--font-anton);
 }
 
 html {

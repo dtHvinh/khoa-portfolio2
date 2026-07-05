@@ -1,23 +1,17 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono, Anton } from "next/font/google";
+import { Be_Vietnam_Pro, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const display = Space_Grotesk({
+const display = Be_Vietnam_Pro({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 const mono = JetBrains_Mono({
   variable: "--font-mono-label",
   subsets: ["latin"],
   weight: ["400", "500"],
-});
-
-const impact = Anton({
-  variable: "--font-anton",
-  subsets: ["latin"],
-  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -34,7 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${mono.variable} ${impact.variable} h-full antialiased`}
+      className={`${display.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
         {children}
