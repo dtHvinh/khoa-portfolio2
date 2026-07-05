@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #f2f2f2;
-  --muted: #8f8f8f;
-  --border: rgba(255, 255, 255, 0.12);
-  --accent: #e0142c;
+  --background: #05070d;
+  --foreground: #f2f4f8;
+  --muted: #8d97ab;
+  --border: rgba(96, 150, 235, 0.18);
+  --accent: #2563eb;
 }
 
 @theme inline {
@@ -37,8 +37,8 @@ body {
 
 /* Faint editorial grid texture behind the hero, dividers and footer */
 .bg-grid {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(96, 150, 235, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 150, 235, 0.08) 1px, transparent 1px);
   background-size: 44px 44px;
 }
 

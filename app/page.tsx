@@ -20,6 +20,12 @@ const SOCIALS = [
   { label: "Twitter", handle: "@alexmercercut", href: "https://twitter.com" },
 ];
 
+const FEATURED = {
+  title: "Best Edit",
+  caption: "The one project I'm proudest of.",
+  embedUrl: "", // e.g. "https://www.youtube.com/embed/VIDEO_ID"
+};
+
 const SKILLS = [
   "Video Editing",
   "Motion Graphics",
@@ -101,6 +107,9 @@ export default function Home() {
             {EDITOR.name}
           </a>
           <div className="hidden gap-8 font-mono text-xs tracking-widest uppercase sm:flex">
+            <a href="#featured" className="transition-colors hover:text-accent">
+              Featured
+            </a>
             <a href="#about" className="transition-colors hover:text-accent">
               About
             </a>
@@ -154,6 +163,44 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ---------- Featured ---------- */}
+      <section id="featured" className="border-t border-line px-6 py-20 sm:px-10 sm:py-28">
+        <div className="mx-auto max-w-7xl">
+          <Reveal className="flex flex-wrap items-end justify-between gap-4 pb-10">
+            <p className="font-mono text-xs tracking-[0.3em] text-accent uppercase">
+              ◖ Featured
+            </p>
+            <p className="max-w-xs text-sm text-muted">{FEATURED.caption}</p>
+          </Reveal>
+          <Reveal>
+            <div className="group relative aspect-video w-full overflow-hidden rounded-xl border border-accent/30 bg-gradient-to-br from-zinc-900 via-black to-blue-950/40">
+              {FEATURED.embedUrl ? (
+                <iframe
+                  className="h-full w-full"
+                  src={FEATURED.embedUrl}
+                  title={FEATURED.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : (
+                <button
+                  type="button"
+                  className="absolute inset-0 flex flex-col items-center justify-center gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                  aria-label={`Play ${FEATURED.title}`}
+                >
+                  <span className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-black/40 backdrop-blur transition-transform duration-500 group-hover:scale-110">
+                    <span className="ml-1 block h-0 w-0 border-y-[12px] border-l-[20px] border-y-transparent border-l-foreground" />
+                  </span>
+                  <span className="font-mono text-xs tracking-widest text-muted uppercase">
+                    Play {FEATURED.title}
+                  </span>
+                </button>
+              )}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ---------- About ---------- */}
       <section id="about" className="border-t border-line px-6 py-20 sm:px-10 sm:py-28">
         <div className="mx-auto max-w-7xl">
@@ -164,7 +211,7 @@ export default function Home() {
           </Reveal>
           <div className="mt-10 grid gap-10 lg:grid-cols-[280px_1fr]">
             <Reveal>
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-line bg-gradient-to-b from-red-950/40 via-zinc-900 to-black">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-line bg-gradient-to-b from-blue-950/40 via-zinc-900 to-black">
                 <span className="absolute bottom-4 left-4 font-impact text-4xl text-white/10">
                   {INITIALS}
                 </span>

@@ -13,7 +13,7 @@ export default function BeforeAfter({ index, channel, category }: BeforeAfterPro
             Before
           </span>
         </div>
-        <div className="group relative aspect-video overflow-hidden rounded-lg border border-accent/30 bg-gradient-to-br from-zinc-900 via-black to-red-950/40">
+        <div className="group relative aspect-video overflow-hidden rounded-lg border border-accent/30 bg-gradient-to-br from-zinc-900 via-black to-blue-950/40">
           <span className="absolute left-3 top-3 font-mono text-[10px] tracking-[0.2em] text-muted uppercase">
             After
           </span>
