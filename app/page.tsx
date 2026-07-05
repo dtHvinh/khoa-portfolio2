@@ -1,4 +1,5 @@
 import Reveal from "./components/Reveal";
+import BeforeAfter from "./components/BeforeAfter";
 
 /* ------------------------------------------------------------------ */
 /*  Content — edit everything here. Placeholder copy for now.          */
@@ -7,38 +8,55 @@ import Reveal from "./components/Reveal";
 const EDITOR = {
   name: "Alex Mercer",
   role: "Video Editor",
-  location: "Based in Los Angeles — working worldwide",
+  location: "Los Angeles, CA — working worldwide",
   intro:
-    "I cut films, commercials and music videos that feel inevitable — every frame earns its place. Eight years turning raw footage into stories people finish.",
+    "Four years turning raw footage into content people finish. I edit, grade and animate for creators and brands who need every second to earn its place.",
+  bio: "I'm Alex, a video editor with four years of professional experience. I picked up After Effects in 2019 and have moved steadily deeper into audiovisual work ever since — today I'm comfortable across the full post pipeline and have delivered projects for dozens of content creators.",
   email: "hello@alexmercer.com",
-  showreelEmbed: "", // e.g. "https://www.youtube.com/embed/VIDEO_ID"
 };
 
 const SOCIALS = [
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "Vimeo", href: "https://vimeo.com" },
-  { label: "YouTube", href: "https://youtube.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
+  { label: "Instagram", handle: "@alexmercer.edit", href: "https://instagram.com" },
+  { label: "Twitter", handle: "@alexmercercut", href: "https://twitter.com" },
 ];
 
-const MARQUEE = [
-  "Editing",
-  "Color Grading",
+const SKILLS = [
+  "Video Editing",
   "Motion Graphics",
+  "Color Grading",
+  "Compositing",
   "Sound Design",
-  "DaVinci Resolve",
-  "Premiere Pro",
-  "After Effects",
-  "Storytelling",
 ];
 
-const WORK = [
-  { title: "Nightfall", role: "Short Film · Edit & Color", year: "2026" },
-  { title: "Atlas Running", role: "Brand Commercial", year: "2025" },
-  { title: "Echoes", role: "Music Video", year: "2025" },
-  { title: "The Long Coast", role: "Documentary", year: "2024" },
-  { title: "Pulse", role: "Title Sequence · Motion", year: "2024" },
-  { title: "Static Bloom", role: "Music Video", year: "2023" },
+const EXPERIENCE = [
+  {
+    role: "Freelance Video Editor",
+    period: "2023 — Present",
+    tasks: [
+      "YouTube long-form and shorts editing",
+      "Channel branding & motion graphics",
+      "Client color grading passes",
+    ],
+  },
+  {
+    role: "Junior Editor",
+    period: "2021 — 2023",
+    company: "Northlight Media",
+    tasks: [
+      "Social media content edits",
+      "Email marketing motion assets",
+      "Corporate video editing",
+    ],
+  },
+];
+
+const SOFTWARE = ["Pr", "Ae", "Ps", "Ai", "DR"];
+
+const PROJECTS = [
+  { channel: "Gameplay Central", category: "Gaming Highlights" },
+  { channel: "Tech Unboxed", category: "Tech Review" },
+  { channel: "Nova VT", category: "VTuber Clips" },
+  { channel: "Northlight Media", category: "Brand Campaign" },
 ];
 
 const SERVICES = [
@@ -64,11 +82,10 @@ const SERVICES = [
   },
 ];
 
-const STATS = [
-  { value: "8+", label: "Years editing" },
-  { value: "240+", label: "Projects delivered" },
-  { value: "50M+", label: "Views generated" },
-];
+const INITIALS = EDITOR.name
+  .split(" ")
+  .map((part) => part[0])
+  .join("");
 
 /* ------------------------------------------------------------------ */
 /*  Page                                                               */
@@ -78,22 +95,22 @@ export default function Home() {
   return (
     <div className="font-sans">
       {/* ---------- Nav ---------- */}
-      <header className="fixed inset-x-0 top-0 z-50 mix-blend-difference">
+      <header className="fixed inset-x-0 top-0 z-50 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 sm:px-10">
           <a href="#top" className="font-mono text-sm tracking-widest uppercase">
             {EDITOR.name}
           </a>
           <div className="hidden gap-8 font-mono text-xs tracking-widest uppercase sm:flex">
-            <a href="#work" className="transition-opacity hover:opacity-60">
-              Work
-            </a>
-            <a href="#services" className="transition-opacity hover:opacity-60">
-              Services
-            </a>
-            <a href="#about" className="transition-opacity hover:opacity-60">
+            <a href="#about" className="transition-colors hover:text-accent">
               About
             </a>
-            <a href="#contact" className="transition-opacity hover:opacity-60">
+            <a href="#work" className="transition-colors hover:text-accent">
+              Work
+            </a>
+            <a href="#services" className="transition-colors hover:text-accent">
+              Services
+            </a>
+            <a href="#contact" className="transition-colors hover:text-accent">
               Contact
             </a>
           </div>
@@ -103,26 +120,29 @@ export default function Home() {
       {/* ---------- Hero ---------- */}
       <section
         id="top"
-        className="relative flex min-h-screen flex-col justify-end overflow-hidden px-6 pb-16 pt-32 sm:px-10"
+        className="relative overflow-hidden bg-grid px-6 pb-20 pt-40 sm:px-10"
       >
-        <div className="mx-auto w-full max-w-7xl">
-          <p className="mb-8 font-mono text-xs tracking-[0.3em] text-muted uppercase">
-            {EDITOR.role} — Portfolio ’26
+        <div className="pointer-events-none absolute -top-32 right-[-10%] h-[520px] w-[520px] rounded-full bg-accent/25 blur-[140px]" />
+        <div className="pointer-events-none absolute bottom-[-20%] left-[-10%] h-[420px] w-[420px] rounded-full bg-accent/10 blur-[140px]" />
+        <div className="relative mx-auto max-w-7xl">
+          <p className="mb-6 font-mono text-xs tracking-[0.3em] text-muted uppercase">
+            Portfolio ’26 — {EDITOR.role}
           </p>
-          <h1 className="text-[15vw] font-bold leading-[0.85] tracking-tight sm:text-[13vw]">
-            VIDEO
-            <br />
-            <span className="text-muted">EDITOR</span>
+          <h1 className="font-impact text-[16vw] leading-[0.82] tracking-tight sm:text-[11vw]">
+            {EDITOR.name}
           </h1>
-          <div className="mt-12 grid gap-8 border-t border-line pt-8 md:grid-cols-2">
-            <p className="max-w-md text-lg leading-relaxed text-muted sm:text-xl">
+          <p className="mt-4 font-mono text-lg text-muted sm:text-xl">
+            {EDITOR.role}
+          </p>
+          <div className="mt-14 grid gap-8 border-t border-line pt-8 md:grid-cols-2">
+            <p className="max-w-md text-lg leading-relaxed text-muted">
               {EDITOR.intro}
             </p>
             <div className="flex flex-col items-start gap-4 md:items-end md:text-right">
               <p className="font-mono text-sm text-muted">{EDITOR.location}</p>
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-3 rounded-full border border-line px-6 py-3 text-sm font-medium transition-colors hover:bg-foreground hover:text-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+                className="group inline-flex items-center gap-3 rounded-full bg-accent px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
                 Start a project
                 <span className="transition-transform group-hover:translate-x-1">
@@ -132,120 +152,125 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="pointer-events-none absolute bottom-6 right-6 font-mono text-xs tracking-widest text-muted uppercase sm:right-10">
-          Scroll ↓
-        </div>
       </section>
 
-      {/* ---------- Showreel ---------- */}
-      <section className="px-6 py-20 sm:px-10 sm:py-28">
+      {/* ---------- About ---------- */}
+      <section id="about" className="border-t border-line px-6 py-20 sm:px-10 sm:py-28">
         <div className="mx-auto max-w-7xl">
-          <Reveal className="flex items-end justify-between pb-6">
-            <h2 className="font-mono text-xs tracking-[0.3em] text-muted uppercase">
-              ◖ Showreel 2026
-            </h2>
-            <span className="font-mono text-xs text-muted">01 / 06</span>
-          </Reveal>
           <Reveal>
-            <div className="group relative aspect-video w-full overflow-hidden rounded-xl border border-line bg-gradient-to-br from-zinc-900 to-black">
-              {EDITOR.showreelEmbed ? (
-                <iframe
-                  className="h-full w-full"
-                  src={EDITOR.showreelEmbed}
-                  title="Showreel 2026"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              ) : (
-                <button
-                  type="button"
-                  className="absolute inset-0 flex flex-col items-center justify-center gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
-                  aria-label="Play showreel"
-                >
-                  <span className="flex h-20 w-20 items-center justify-center rounded-full border border-line backdrop-blur transition-transform duration-500 group-hover:scale-110">
-                    <span className="ml-1 block h-0 w-0 border-y-[12px] border-l-[20px] border-y-transparent border-l-foreground" />
-                  </span>
-                  <span className="font-mono text-xs tracking-widest text-muted uppercase">
-                    Play Showreel
-                  </span>
-                </button>
-              )}
-            </div>
+            <p className="font-mono text-xs tracking-[0.3em] text-accent uppercase">
+              ◖ About
+            </p>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ---------- Marquee ---------- */}
-      <section
-        className="border-y border-line py-6"
-        aria-hidden="true"
-      >
-        <div className="flex overflow-hidden">
-          <div className="flex shrink-0 animate-marquee items-center whitespace-nowrap">
-            {[...MARQUEE, ...MARQUEE].map((item, i) => (
-              <span
-                key={i}
-                className="mx-8 text-2xl font-medium text-muted sm:text-3xl"
-              >
-                {item}
-                <span className="ml-16 text-foreground/30">✦</span>
-              </span>
-            ))}
+          <div className="mt-10 grid gap-10 lg:grid-cols-[280px_1fr]">
+            <Reveal>
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-line bg-gradient-to-b from-red-950/40 via-zinc-900 to-black">
+                <span className="absolute bottom-4 left-4 font-impact text-4xl text-white/10">
+                  {INITIALS}
+                </span>
+              </div>
+            </Reveal>
+            <div className="grid gap-10 sm:grid-cols-2">
+              <Reveal>
+                <h3 className="font-impact text-2xl tracking-tight">Bio</h3>
+                <p className="mt-4 leading-relaxed text-muted">{EDITOR.bio}</p>
+                <h3 className="mt-10 font-impact text-2xl tracking-tight">
+                  Skills
+                </h3>
+                <ul className="mt-4 space-y-2">
+                  {SKILLS.map((skill) => (
+                    <li key={skill} className="flex items-center gap-2 text-sm">
+                      <span className="h-1 w-1 rounded-full bg-accent" />
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+              <Reveal delay={100}>
+                <h3 className="font-impact text-2xl tracking-tight">
+                  Experience
+                </h3>
+                <div className="mt-4 space-y-6">
+                  {EXPERIENCE.map((exp) => (
+                    <div key={exp.role}>
+                      <p className="font-medium">
+                        {exp.role}{" "}
+                        <span className="font-normal text-muted">
+                          ({exp.period})
+                        </span>
+                      </p>
+                      {exp.company && (
+                        <p className="text-xs text-muted">{exp.company}</p>
+                      )}
+                      <ul className="mt-2 space-y-1">
+                        {exp.tasks.map((task) => (
+                          <li key={task} className="text-sm text-muted">
+                            · {task}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+                <h3 className="mt-10 font-impact text-2xl tracking-tight">
+                  Software
+                </h3>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {SOFTWARE.map((tool) => (
+                    <span
+                      key={tool}
+                      className="flex h-11 w-11 items-center justify-center rounded-lg border border-line font-mono text-sm font-medium"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
           </div>
         </div>
+      </section>
+
+      {/* ---------- Work divider ---------- */}
+      <section className="relative overflow-hidden border-t border-line bg-grid px-6 py-24 text-center sm:px-10">
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/15 blur-[140px]" />
+        <Reveal className="relative">
+          <h2 className="font-impact text-[13vw] leading-none tracking-tight sm:text-[7vw]">
+            Video Editing
+          </h2>
+          <p className="mt-3 font-mono text-sm uppercase tracking-[0.3em] text-muted">
+            Selected Work
+          </p>
+        </Reveal>
       </section>
 
       {/* ---------- Selected Work ---------- */}
       <section id="work" className="px-6 py-20 sm:px-10 sm:py-28">
-        <div className="mx-auto max-w-7xl">
-          <Reveal className="mb-12 flex flex-wrap items-end justify-between gap-4">
-            <h2 className="text-4xl font-bold tracking-tight sm:text-6xl">
-              Selected Work
-            </h2>
-            <p className="max-w-xs text-sm text-muted">
-              A small slice of recent edits across film, brand and music.
+        <div className="mx-auto max-w-7xl space-y-16">
+          <Reveal>
+            <p className="max-w-xl text-sm text-muted">
+              Disclaimer: the projects shown below were edited by me
+              exclusively to demonstrate my editing skills. All original
+              material belongs to its respective creators.
             </p>
           </Reveal>
-          <div className="grid gap-6 sm:grid-cols-2">
-            {WORK.map((project, i) => (
-              <Reveal key={project.title} delay={(i % 2) * 100}>
-                <a
-                  href="#contact"
-                  className="group block overflow-hidden rounded-xl border border-line"
-                >
-                  <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-zinc-800 via-zinc-900 to-black">
-                    <span className="absolute left-4 top-4 font-mono text-xs text-muted">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div className="absolute inset-0 flex items-center justify-center transition-transform duration-700 group-hover:scale-105">
-                      <span className="text-5xl font-bold tracking-tight text-foreground/10 sm:text-7xl">
-                        {project.title}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between border-t border-line p-5">
-                    <div>
-                      <h3 className="text-lg font-medium">{project.title}</h3>
-                      <p className="font-mono text-xs text-muted">
-                        {project.role}
-                      </p>
-                    </div>
-                    <span className="font-mono text-sm text-muted transition-transform group-hover:-translate-y-0.5 group-hover:text-foreground">
-                      {project.year} ↗
-                    </span>
-                  </div>
-                </a>
-              </Reveal>
-            ))}
-          </div>
+          {PROJECTS.map((project, i) => (
+            <Reveal key={project.channel} delay={(i % 2) * 100}>
+              <BeforeAfter
+                index={i + 1}
+                channel={project.channel}
+                category={project.category}
+              />
+            </Reveal>
+          ))}
         </div>
       </section>
 
       {/* ---------- Services ---------- */}
-      <section id="services" className="px-6 py-20 sm:px-10 sm:py-28">
+      <section id="services" className="border-t border-line px-6 py-20 sm:px-10 sm:py-28">
         <div className="mx-auto max-w-7xl">
           <Reveal>
-            <h2 className="mb-12 text-4xl font-bold tracking-tight sm:text-6xl">
+            <h2 className="mb-12 font-impact text-4xl tracking-tight sm:text-6xl">
               What I do
             </h2>
           </Reveal>
@@ -253,7 +278,7 @@ export default function Home() {
             {SERVICES.map((s) => (
               <Reveal key={s.no}>
                 <div className="group grid grid-cols-[auto_1fr] items-baseline gap-x-6 border-b border-line py-8 transition-colors hover:bg-white/[0.02] sm:grid-cols-[6rem_1fr_2fr] sm:gap-x-10">
-                  <span className="font-mono text-sm text-muted">{s.no}</span>
+                  <span className="font-mono text-sm text-accent">{s.no}</span>
                   <h3 className="text-2xl font-medium tracking-tight transition-transform group-hover:translate-x-2 sm:text-4xl">
                     {s.title}
                   </h3>
@@ -267,75 +292,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- About ---------- */}
-      <section
-        id="about"
-        className="px-6 py-20 sm:px-10 sm:py-28"
-      >
-        <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2">
-          <Reveal>
-            <h2 className="text-4xl font-bold tracking-tight sm:text-6xl">
-              About
-            </h2>
-          </Reveal>
-          <Reveal delay={100} className="flex flex-col gap-10">
-            <p className="text-xl leading-relaxed sm:text-2xl">
-              {EDITOR.name} is a {EDITOR.role.toLowerCase()} obsessed with pace,
-              tension and the cut you don’t notice. From feature documentaries
-              to 15-second spots, the goal never changes: keep people watching.
-            </p>
-            <div className="grid grid-cols-3 gap-6 border-t border-line pt-8">
-              {STATS.map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-3xl font-bold sm:text-5xl">{stat.value}</p>
-                  <p className="mt-2 font-mono text-xs text-muted uppercase">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* ---------- Contact / Footer ---------- */}
-      <footer id="contact" className="px-6 pt-20 pb-10 sm:px-10 sm:pt-28">
-        <div className="mx-auto max-w-7xl">
+      <footer
+        id="contact"
+        className="relative overflow-hidden border-t border-line bg-grid px-6 pb-10 pt-24 sm:px-10 sm:pt-32"
+      >
+        <div className="pointer-events-none absolute -bottom-40 left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-accent/20 blur-[150px]" />
+        <div className="relative mx-auto max-w-7xl">
           <Reveal>
-            <p className="font-mono text-xs tracking-[0.3em] text-muted uppercase">
+            <p className="font-mono text-xs tracking-[0.3em] text-accent uppercase">
               ◖ Contact
             </p>
-            <h2 className="mt-6 text-[12vw] font-bold leading-[0.9] tracking-tight sm:text-[9vw]">
-              Let’s work
-              <br />
-              together
+            <h2 className="mt-6 font-impact text-[16vw] leading-[0.85] tracking-tight sm:text-[10vw]">
+              Thank You!
             </h2>
-            <a
-              href={`mailto:${EDITOR.email}`}
-              className="mt-10 inline-flex items-center gap-3 rounded-full bg-foreground px-8 py-4 text-base font-medium text-background transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
-            >
-              {EDITOR.email}
-              <span>→</span>
-            </a>
-          </Reveal>
-
-          <div className="mt-20 flex flex-col gap-6 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
-            <p className="font-mono text-xs text-muted">
-              © {new Date().getFullYear()} {EDITOR.name}. All rights reserved.
-            </p>
-            <div className="flex flex-wrap gap-6">
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href={`mailto:${EDITOR.email}`}
+                className="inline-flex items-center gap-3 rounded-full bg-accent px-8 py-4 text-base font-medium text-white transition-transform hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                {EDITOR.email}
+                <span>→</span>
+              </a>
               {SOCIALS.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-xs tracking-widest text-muted uppercase transition-colors hover:text-foreground"
+                  className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-4 font-mono text-sm text-muted transition-colors hover:border-accent hover:text-foreground"
                 >
-                  {social.label}
+                  {social.label} · {social.handle}
                 </a>
               ))}
             </div>
+          </Reveal>
+
+          <div className="mt-20 flex flex-col gap-4 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
+            <p className="font-mono text-xs text-muted">
+              © {new Date().getFullYear()} {EDITOR.name}. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>

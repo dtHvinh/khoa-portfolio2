@@ -2,9 +2,10 @@
 
 :root {
   --background: #0a0a0a;
-  --foreground: #ededed;
-  --muted: #8a8a8a;
+  --foreground: #f2f2f2;
+  --muted: #8f8f8f;
   --border: rgba(255, 255, 255, 0.12);
+  --accent: #e0142c;
 }
 
 @theme inline {
@@ -12,8 +13,10 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-line: var(--border);
+  --color-accent: var(--accent);
   --font-sans: var(--font-display);
   --font-mono: var(--font-mono-label);
+  --font-impact: var(--font-anton);
 }
 
 html {
@@ -28,8 +31,15 @@ body {
 }
 
 ::selection {
-  background: var(--foreground);
-  color: var(--background);
+  background: var(--accent);
+  color: var(--foreground);
+}
+
+/* Faint editorial grid texture behind the hero, dividers and footer */
+.bg-grid {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
 
 /* On-scroll reveal: hidden until .is-visible is added by IntersectionObserver */
@@ -55,18 +65,4 @@ body {
   html {
     scroll-behavior: auto;
   }
-}
-
-/* Infinite marquee strip */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
 }
