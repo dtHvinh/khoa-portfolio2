@@ -21,10 +21,13 @@ const SOCIALS = [
   { label: "Twitter", handle: "@alexmercercut", href: "https://twitter.com" },
 ];
 
+// Vercel Blob store — public base URL for all uploaded media.
+const BLOB = "https://tvdzjuwoesvjjjeo.public.blob.vercel-storage.com";
+
 const FEATURED = {
   title: "Best Edit",
   caption: "The one project I'm proudest of.",
-  embedUrl: "", // e.g. "https://www.youtube.com/embed/VIDEO_ID"
+  src: `${BLOB}/video-editting/4.mp4`,
 };
 
 const SKILLS = [
@@ -61,47 +64,57 @@ const SOFTWARE = ["Pr", "Ae", "Ps", "Ai", "DR"];
 
 const VIDEO_PROJECTS = [
   {
-    title: "Gameplay Central — Highlight Reel",
-    caption: "Channel: Gameplay Central · Gaming Highlights",
-    embedUrl: "", // e.g. "https://www.youtube.com/embed/VIDEO_ID"
+    title: "Edit 01",
+    caption: "Video Editing · Long-form",
+    src: `${BLOB}/video-editting/1.mp4`,
   },
   {
-    title: "Tech Unboxed — Review Edit",
-    caption: "Channel: Tech Unboxed · Tech Review",
-    embedUrl: "",
+    title: "Edit 02",
+    caption: "Video Editing · Highlights",
+    src: `${BLOB}/video-editting/2.mp4`,
   },
   {
-    title: "Nova VT — Clip Compilation",
-    caption: "Channel: Nova VT · VTuber Clips",
-    embedUrl: "",
+    title: "Edit 03",
+    caption: "Video Editing · Short-form",
+    src: `${BLOB}/video-editting/3.mp4`,
   },
   {
-    title: "Northlight Media — Brand Spot",
-    caption: "Channel: Northlight Media · Brand Campaign",
-    embedUrl: "",
+    title: "Edit 04",
+    caption: "Video Editing · Feature",
+    src: `${BLOB}/video-editting/4.mp4`,
   },
 ];
 
 const MOTION_PROJECTS = [
   {
-    title: "Kinetic Logo Reveal",
-    caption: "Motion Graphics · Logo Animation",
-    embedUrl: "",
+    title: "Motion 01",
+    caption: "Motion Graphics · Animation",
+    src: `${BLOB}/motion-graphic/1.mp4`,
   },
   {
-    title: "Lower Thirds Pack",
-    caption: "Motion Graphics · Broadcast Package",
-    embedUrl: "",
+    title: "16s Spot",
+    caption: "Motion Graphics · Short Spot",
+    src: `${BLOB}/motion-graphic/16s.mp4`,
   },
   {
-    title: "Title Sequence",
-    caption: "Motion Graphics · Title Design",
-    embedUrl: "",
+    title: "Home",
+    caption: "Motion Graphics · Intro",
+    src: `${BLOB}/motion-graphic/home.mp4`,
   },
   {
-    title: "Explainer Animation",
-    caption: "Motion Graphics · Explainer",
-    embedUrl: "",
+    title: "Moca",
+    caption: "Motion Graphics · Brand",
+    src: `${BLOB}/motion-graphic/moca.mp4`,
+  },
+  {
+    title: "Ship 01",
+    caption: "Motion Graphics · Product",
+    src: `${BLOB}/motion-graphic/ship1.mp4`,
+  },
+  {
+    title: "Ship 02",
+    caption: "Motion Graphics · Product",
+    src: `${BLOB}/motion-graphic/ship2.mp4`,
   },
 ];
 
@@ -216,7 +229,7 @@ export default function Home() {
             <p className="max-w-xs text-sm text-muted">{FEATURED.caption}</p>
           </Reveal>
           <Reveal>
-            <VideoFrame title={FEATURED.title} embedUrl={FEATURED.embedUrl} />
+            <VideoFrame title={FEATURED.title} src={FEATURED.src} />
           </Reveal>
         </div>
       </section>
@@ -313,7 +326,7 @@ export default function Home() {
           <div className="grid gap-10 sm:grid-cols-2">
             {VIDEO_PROJECTS.map((project, i) => (
               <Reveal key={project.title} delay={(i % 2) * 100}>
-                <VideoFrame title={project.title} embedUrl={project.embedUrl} />
+                <VideoFrame title={project.title} src={project.src} />
                 <p className="mt-4 font-mono text-xs tracking-[0.15em] text-muted uppercase">
                   {project.caption}
                 </p>
@@ -331,7 +344,7 @@ export default function Home() {
           <div className="grid gap-10 sm:grid-cols-2">
             {MOTION_PROJECTS.map((project, i) => (
               <Reveal key={project.title} delay={(i % 2) * 100}>
-                <VideoFrame title={project.title} embedUrl={project.embedUrl} />
+                <VideoFrame title={project.title} src={project.src} />
                 <p className="mt-4 font-mono text-xs tracking-[0.15em] text-muted uppercase">
                   {project.caption}
                 </p>
