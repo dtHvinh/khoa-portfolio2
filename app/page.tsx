@@ -34,14 +34,14 @@ const CURRENT_JOB = {
 const FEATURED = {
   title: "Video tâm đắc nhất",
   caption: "Kênh YouTube Thỏ Đêm · Biên tập theo phong cách kể chuyện.",
-  src: `${BLOB}/video-editting/4.mp4`,
+  src: `${BLOB}/video-editting/1.mp4`,
 };
 
 const STATS = [
   { value: "100K", label: "Người đăng ký kênh" },
   { value: "40+", label: "Video dài đã hoàn thành" },
   { value: "1Tr+", label: "View cho 2 video nổi bật" },
-  { value: "3+", label: "Năm kinh nghiệm" },
+  { value: "2+", label: "Năm kinh nghiệm" },
 ];
 
 const STRENGTHS = [
@@ -92,15 +92,15 @@ const CERTIFICATE = {
 const SOFTWARE = ["CapCut", "Pr", "Ae", "Ps"];
 
 const VIDEO_PROJECTS = [
-  { title: "Video 01", caption: "Dựng Video · Video dài YouTube", src: `${BLOB}/video-editting/1.mp4` },
-  { title: "Video 02", caption: "Dựng Video · Kênh Thỏ Đêm", src: `${BLOB}/video-editting/2.mp4` },
-  { title: "Video 03", caption: "Dựng Video · Short / TikTok", src: `${BLOB}/video-editting/3.mp4` },
-  { title: "Video 04", caption: "Dựng Video · Sản phẩm nổi bật", src: `${BLOB}/video-editting/4.mp4` },
+  { title: "Video 01", caption: "Dựng Video · Kênh Thỏ Đêm", src: `${BLOB}/video-editting/1.mp4` },
+  { title: "Video 02", caption: "Dựng Video · Short / TikTok", src: `${BLOB}/video-editting/2.mp4` },
+  { title: "Video 03", caption: "Dựng Video · Kênh Thỏ Đêm", src: `${BLOB}/video-editting/3.mp4` },
+  { title: "Video 04", caption: "Dựng Video · Kênh Thỏ Đêm", src: `${BLOB}/video-editting/4.mp4` },
 ];
 
 const MOTION_PROJECTS = [
   { title: "Motion 01", caption: "Motion Graphics · Hiệu ứng", src: `${BLOB}/motion-graphic/1.mp4` },
-  { title: "Spot 16s", caption: "Motion Graphics · Quảng cáo ngắn", src: `${BLOB}/motion-graphic/16s.mp4` },
+  { title: "Spot 16s", caption: "Motion Graphics · Cơ bản", src: `${BLOB}/motion-graphic/16s.mp4` },
   { title: "Home", caption: "Motion Graphics · Intro", src: `${BLOB}/motion-graphic/home.mp4` },
   { title: "Moca", caption: "Motion Graphics · Thương hiệu", src: `${BLOB}/motion-graphic/moca.mp4` },
   { title: "Ship 01", caption: "Motion Graphics · Sản phẩm", src: `${BLOB}/motion-graphic/ship1.mp4` },
