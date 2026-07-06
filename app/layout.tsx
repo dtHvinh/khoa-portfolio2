@@ -4,20 +4,20 @@ import "./globals.css";
 
 const display = Be_Vietnam_Pro({
   variable: "--font-display",
-  subsets: ["latin"],
+  subsets: ["latin", "vietnamese"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 const mono = JetBrains_Mono({
   variable: "--font-mono-label",
-  subsets: ["latin"],
+  subsets: ["latin", "vietnamese"],
   weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: "Alex Mercer — Video Editor",
+  title: "Trần Đăng Khoa — Nhân viên Edit Video",
   description:
-    "Video editor crafting cinematic stories — editing, color grading, motion graphics and sound design.",
+    "Video Editor dựng video ngắn và dài cho nhiều nền tảng mạng xã hội — cắt ghép, chỉnh màu, xử lý âm thanh và motion graphics.",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="vi"
       className={`${display.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
