@@ -5,6 +5,7 @@ import SectionDivider from "./components/SectionDivider";
 /* ------------------------------------------------------------------ */
 /*  Nội dung — chỉnh sửa toàn bộ tại đây.                              */
 /* ------------------------------------------------------------------ */
+const BLOB = "https://tvdzjuwoesvjjjeo.public.blob.vercel-storage.com";
 
 const EDITOR = {
   name: "Trần Đăng Khoa",
@@ -15,10 +16,12 @@ const EDITOR = {
   bio: "Mình là Trần Đăng Khoa. Mình muốn được làm việc trong môi trường sáng tạo để phát triển kỹ năng biên tập hình ảnh, kể chuyện bằng video và tạo ra những sản phẩm có giá trị cho người xem. Hiện mình đang là editor fulltime cho kênh YouTube Thỏ Đêm.",
   email: "singed308@gmail.com",
   phone: "0355987624",
+  // Ảnh đại diện: đặt file vào /public (vd "/profile.jpg") hoặc dán URL ảnh.
+  // Để trống "" sẽ hiện khung chờ.
+  photo: `${BLOB}/profile/79b7db5b-ad2c-4d76-95c0-eeca71c3fc9c.jpg`,
 };
 
 // Vercel Blob store — URL công khai cho toàn bộ media đã tải lên.
-const BLOB = "https://tvdzjuwoesvjjjeo.public.blob.vercel-storage.com";
 
 const SOCIALS = [
   { label: "YouTube", handle: "@bunnieo-x", href: "https://www.youtube.com/@bunnieo-x" },
@@ -260,7 +263,25 @@ export default function Home() {
               ◖ Giới thiệu
             </p>
           </Reveal>
-          <div className="mt-10">
+          <div className="mt-10 grid gap-10 lg:grid-cols-[440px_1fr] lg:gap-16">
+            <Reveal className="lg:sticky lg:top-28 lg:self-start">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-line bg-gradient-to-b from-blue-950/40 via-zinc-900 to-black">
+                {EDITOR.photo ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={EDITOR.photo}
+                    alt={EDITOR.name}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
+                    <span className="font-mono text-xs uppercase tracking-widest text-muted">
+                      Thêm ảnh vào EDITOR.photo
+                    </span>
+                  </div>
+                )}
+              </div>
+            </Reveal>
             <div className="flex flex-col gap-10">
               <Reveal>
                 <p className="text-lg leading-relaxed text-muted">{EDITOR.bio}</p>
