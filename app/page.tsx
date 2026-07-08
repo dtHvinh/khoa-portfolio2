@@ -5,7 +5,7 @@ import SectionDivider from "./components/SectionDivider";
 /* ------------------------------------------------------------------ */
 /*  Nội dung — chỉnh sửa toàn bộ tại đây.                              */
 /* ------------------------------------------------------------------ */
-const BLOB = "https://tvdzjuwoesvjjjeo.public.blob.vercel-storage.com";
+const BLOB = "https://f006.backblazeb2.com/file/dthv-bucket";
 
 const EDITOR = {
   name: "Trần Đăng Khoa",
